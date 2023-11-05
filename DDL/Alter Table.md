@@ -124,9 +124,46 @@ Remove a not-null constraint from a column:
 ALTER TABLE distributors
 ALTER COLUMN street DROP NOT NULL;
 ```
+To add a check constraint to a table and all its children:
 
+```SQL
+ALTER TABLE distributors ADD CONSTRAINTS zipchk CHECK (char_length(zipcode))
+```
 
+To add a check constraint only to a table and not to its children:
 
+```SQL
+ALTER TABLE distributors ADD CONSTRAINT zipchk CHECK (char_length(zipcode) = 5) NO INHERIT;
+```
+
+To remove a check constraint from a table and all its children:
+
+```SQL
+ALTER TABLE distributors DROP CONSTRAINT zipchk;
+```
+
+To remove a check constraint from one table only:
+
+```SQL
+ALTER TABLE ONLY distributors DROP CONSTRAINT zipchk;
+```
+
+To add a foreign key constraint to a table:
+
+```SQL
+ALTER TABLE distributors
+ADD CONSTRAINT distfk FOREIGN KEY (address) REFERENCES addresses (address);
+```
+
+To add a (multicolumn) unique constraint to a table:
+
+```SQL
+ALTER TABLE distributors ADD CONSTRAINT dist_id_zipcode_key UNIQUE (dist_id, zipcode);
+```
+
+```SQL
+ALTER TABLE distributors ADD PRIMARY KEY (dist_id);
+```
 
 
 
