@@ -13,3 +13,34 @@ SELECT a.column_name, b.column_name
 FROM table_name AS a, table_name AS b
 WHERE a.common_field=b.common_field;
 ```
+
+In this query:
+
+* `table_name`: is the name of the table to join to itself.
+* `a` and `b`: are different aliases for the same table.
+* `column_name`: specify the columns that should be returned as a result of the SQL `SELF JOIN` statement.
+* `WHERE a.common_field` `= b.common_field`: is the condition for the join.
+
+## Example of a Self Join
+
+Let us consider a `EMPLOYEES` table with the following structure:
+
+```
+
+EmployeeID	Name	ManagerID
+1	        Sam	    NULL
+2	        Alex	1
+3	        John	1
+4	        Sophia	2
+5	        Emma	2
+```
+
+ you want to find out all the employees and who their manager is, you can do so using a `SELF JOIN`:
+
+```SQL
+SELECT a.Name AS Employee, b.Name AS Manager
+FROM EMPLOYEES a, EMPLOYEES b
+WHERE a.ManagerID = b.EmployeeID;
+```
+
+This query will return the name of each employee along with the name of their respective manager.
