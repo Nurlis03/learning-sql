@@ -29,3 +29,32 @@ WHERE  (column_name [, column_name ])
             FROM table_name 
             WHERE condition);
 ```
+
+## Column Subqueries
+
+Column Subqueries are used to return one or more columns to the outer SQL select query. They are used when the subquery is expected to return more than one column to the main query.
+
+Example:
+
+```SQL
+SELECT column_name [, column_name ]
+FROM   table1 [, table2 ]
+WHERE  (SELECT column_name [, column_name ]
+        FROM table_name 
+        WHERE condition);
+```
+
+## Table Subqueries
+
+Table subqueries are used in the FROM clause and return a table that can be used as a table-reference in an SQL statement. They come in handy when you want to perform operations such as joining multiple tables, union data from multiple sources, etc.
+
+Example:
+
+```SQL
+SELECT column_name [, column_name ]
+FROM
+    (SELECT column_name [, column_name ]
+        FROM   table1 [, table2 ])
+WHERE  condition;
+```
+
