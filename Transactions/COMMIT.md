@@ -27,6 +27,7 @@ However, keep in mind that if there was an error during this transaction (for in
 ## Syntax with ROLLBACK:
 
 ```SQL
+START TRANSACTION;
 UPDATE Account SET amount = amount - 2000 WHERE name = 'A';
 UPDATE Account SET amount = amout + 2000 WHERE name = 'B';
 IF @@ERROR != 0
