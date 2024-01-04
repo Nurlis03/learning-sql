@@ -45,3 +45,25 @@ In this example, `user1` is revoked from the permission to read/perform SELECT o
 
 Permission management is an important aspect of database management, understanding, and using `GRANT` and `REVOKE` operations help in maintaining the integrity and security of your data in SQL.
 
+
+DCL includes commands such as GRANT and REVOKE which mainly deal with the rights, permissions, and other controls of the database system.
+
+List of DCL commands:
+
+`GRANT`: This command gives users access privileges to the database.
+
+`Syntax:`
+
+```SQL
+GRANT SELECT, UPDATE ON MY_TABLE TO SOME_USER, ANOTER_USER;
+```
+
+REVOKE: This command withdraws the user’s access privileges given by using the GRANT command.
+Эта команда отменяет права доступа пользователя, предоставленные с помощью команды GRANT.
+
+`Syntax:`
+
+```SQL
+REVOKE SELECT, UPDATE ON MY_TABLE FROM USER1, USER2;
+```
+
