@@ -41,4 +41,3 @@ BEGIN
 END;
 ```
 Note that while the use of Dynamic SQL offers greater flexibility, it also comes with potential security risks such as SQL Injection, and should be used judiciously. Always validate and sanitize inputs when building dynamic queries.
-
